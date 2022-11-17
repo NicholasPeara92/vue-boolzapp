@@ -19,17 +19,23 @@ body {
 
 .container {
     display: flex;
-    max-width: 1280px;
+    max-width: 1600px;
     max-height: 905px;
 }
 .contacts-col {
     display: flex;
     width: 535px;
     flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    background-color: white;
 }
 
 .chat-col {
-    width: calc(1280px - 535px);
+    width: calc(1600px - 535px);
+    background-image: url(../img/mine.jpg);
+    display: flex;
+    flex-direction: column;
 }
 
 .profile {
@@ -52,12 +58,12 @@ img {
     align-items: center;
 }
 
-.user-profile span {
+.user-profile span, contact-profile span {
     font-weight: bold;
     margin-left: 5px;
 }
 
-.profile-icons i {
+.profile-icons i, .chat-icons i {
     margin: 0 7px;
     font-size: 20px;
     color: #b1b1b1;
@@ -99,4 +105,75 @@ img {
 .contact-search input {
     cursor: text;
     width: 400px;
+}
+
+.contact-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: hidden;
+    
+}
+
+.contact-list ul {
+    overflow-y: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-list li {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: 1px solid #e9ebeb;
+    cursor: pointer;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.header-chat {
+    justify-content: space-between;
+    background-color: #eaeaea;
+    padding: 10px;
+}
+
+.main-chat {
+    flex-grow: 1;
+}
+
+.chat-bar {
+    height: 70px;
+    background-color: #eaeaea;
+    justify-content: space-between;
+}
+
+.chat-bar input {
+    flex-grow: 1;
+    cursor: text;
+    padding: 10px;
+}
+
+.chat-bar i {
+    padding: 10px 30px;
+    font-size: 20px;
+    color: #6b7376;
+}
+
+.sent {
+    background-color: #d5f9ba;
+}
+
+.recieved {
+    background-color: #ffffff;
+}
+
+.active {
+    background-color: #e9ebeb;
 }

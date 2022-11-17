@@ -6,8 +6,8 @@ const { createApp } = Vue
 createApp({
     data() {
             return {
-            message: 'Hello Vue!'
-            contacts: [
+                contactId: 0,
+                contacts: [
                 {
                     name: 'Michele',
                     avatar: '_1',
@@ -171,5 +171,10 @@ createApp({
                 }
             ]
         }
+    },
+    methods: {
+        changeContact(index) {
+			this.contactId = index;
+		}
     }
 }).mount('#app')

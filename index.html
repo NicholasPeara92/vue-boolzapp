@@ -40,8 +40,47 @@
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
+                <div class="contact-list">
+                    <ul>
+                        <li v-for="(contact, index) in contacts" :class="{active : contactId === index}" @click="changeContact(index)">
+                            <div class="contact d-flex">
+                                <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                                <span>
+                                    <b>{{contact.name}}</b>
+                                    <p>{{contact.messages.message}}</p>
+                                </span>
+                            </div>
+                            <div class="date">
+                                <span>12:00</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="chat-col"></div>
+            <div class="chat-col">
+                <div class="header-chat d-flex">
+                    <div class="contact-profile d-flex">
+                        <img src="img/avatar_1.jpg" alt="">
+                        <span>
+                            <b>Michele</b>
+                            <p>Ultimo accesso oggi alle 12:00</p>
+                        </span>
+                    </div>
+                    <div class="chat-icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>   
+                    </div>
+                </div>
+                <div class="main-chat d-flex">
+
+                </div>
+                <div class="chat-bar d-flex">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </div>
         </div>
         
         <script src="js/main.js"></script>
