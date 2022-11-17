@@ -128,7 +128,6 @@ img {
     display: flex;
     padding: 10px;
     justify-content: space-between;
-    background-color: white;
     border-bottom: 1px solid #e9ebeb;
     cursor: pointer;
 }
