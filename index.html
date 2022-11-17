@@ -47,7 +47,7 @@
                                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                 <span>
                                     <b>{{contact.name}}</b>
-                                    <p>{{contact.messages[2]}}</p>
+                                    <p>{{contact.messages.length-1}}</p>
                                 </span>
                             </div>
                             <div class="date">
@@ -60,9 +60,9 @@
             <div class="chat-col">
                 <div class="header-chat d-flex">
                     <div class="contact-profile d-flex">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="`img/avatar${contacts[contactId].avatar}.jpg`" alt="">
                         <span>
-                            <b>Michele</b>
+                            <b>{{contacts[contactId].name}}</b>
                             <p>Ultimo accesso oggi alle 12:00</p>
                         </span>
                     </div>

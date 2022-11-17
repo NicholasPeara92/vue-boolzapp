@@ -175,7 +175,7 @@ createApp({
     methods: {
         changeContact(index) {
 			this.contactId = index;
-            console.log(this.contactId)
+            console.log(this.contacts[index].messages.length - 1)
 		}
     }
 }).mount('#app')
