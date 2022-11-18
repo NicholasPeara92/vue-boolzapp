@@ -6,6 +6,8 @@ const { createApp } = Vue
 createApp({
     data() {
             return {
+                searchName: '',
+                newMessage:'',
                 contactId: 0,
                 contacts: [
                 {
@@ -175,7 +177,32 @@ createApp({
     methods: {
         changeContact(index) {
 			this.contactId = index;
-            console.log(this.contacts[index].messages[this.contacts[index].messages.length - 1].message)
-		}
+		},
+        // metodo di ricerca contatto
+        searchContact: function() {
+            if (this.searchName === ''){
+                for(let i=0; i<this.contacts.length; i++){
+                    this.contacts[i].visible = true;
+                }
+            } else {
+                for(let i=0; i<this.contacts.length; i++){
+                    if(!this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())){
+                        this.contacts[i].visible = false;   
+                    }
+                }
+            }
+        },
+        // metodo per cancellare le lettere dalla searchbar dei contatti ed adattare i risultati
+        deLetter: function() {
+            if(this.searchName !== ''){
+                for(let i=0; i<this.contacts.length; i++){
+                    if(this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())){
+                        this.contacts[i].visible = true;
+                    }
+                }
+            }
+        },
+        // metodo per inviare nuovi messaggi nelle chat
+        
     }
 }).mount('#app')
