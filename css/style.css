@@ -132,6 +132,11 @@ img {
     cursor: pointer;
 }
 
+.date {
+    font-size: 12px;
+    align-self: flex-end;
+}
+
 .d-flex {
     display: flex;
     align-items: center;
@@ -141,12 +146,14 @@ img {
     justify-content: space-between;
     background-color: #eaeaea;
     padding: 10px;
+    flex-shrink: 0;
 }
 
 .main-chat {
     flex-grow: 1;
     flex-direction: column;
     padding: 50px;
+    overflow-y: auto;
 
 }
 
@@ -154,6 +161,7 @@ img {
     height: 70px;
     background-color: #eaeaea;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .chat-bar input {
@@ -168,19 +176,22 @@ img {
     color: #6b7376;
 }
 
-.message-row {
+.message-row.sent {
     display: flex;
     margin: 20px;
+    justify-content: flex-end;
 }
-.sent {
+.message-row.sent .message {
     background-color: #d5f9ba;
 }
 
-.flex-end {
-    justify-content: flex-end;
+.message-row.received {
+    display: flex;
+    margin: 20px;
+    justify-content: flex-start;
 }
 
-.recieved {
+.message-row.received .message {
     background-color: #ffffff;
     justify-content: flex-start;
 }

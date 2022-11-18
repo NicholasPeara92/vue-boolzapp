@@ -51,7 +51,7 @@
                                 </span>
                             </div>
                             <div class="date">
-                                <span>12:00</span>
+                                <span>{{contact.messages[contact.messages.length-1].date}}</span>
                             </div>
                         </li>
                     </ul>
@@ -73,25 +73,12 @@
                     </div>
                 </div>
                 <div class="main-chat">
-                    <div class="message-row flex-end">
-                        <div class="message sent">
-                            <p class="sent">Hai portato a spasso il cane?</p>
-                            <small>12:00</small>
+                    <div class="message-row" v-for="message in contacts[contactId].messages" :class="message.status">
+                        <div class="message">
+                            <p class="sent">{{message.message}}</p>
+                            <small>{{message.date}}</small>
                         </div>
                     </div>
-                    <div class="message-row flex-end">
-                        <div class="message sent">
-                            <p class="sent">Ricordati di stendere i panni</p>
-                            <small>12:00</small>
-                        </div>
-                    </div>
-                    <div class="message-row flex-start">
-                        <div class="message recieved">
-                            <p>Tutto fatto!</p>
-                            <small>12:00</small>
-                        </div>
-                    </div>
-                    
                 </div>
                 <div class="chat-bar d-flex">
                     <i class="fa-regular fa-face-smile"></i>
