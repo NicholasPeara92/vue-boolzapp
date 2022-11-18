@@ -47,7 +47,7 @@
                                 <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                                 <span>
                                     <b>{{contact.name}}</b>
-                                    <p>{{contact.messages.length-1}}</p>
+                                    <p>{{contact.messages[contact.messages.length-1].message}}</p>
                                 </span>
                             </div>
                             <div class="date">
