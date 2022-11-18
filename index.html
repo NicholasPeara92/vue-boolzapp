@@ -86,11 +86,11 @@
                     </div>
                 </div>
                 <!-- CHAT BAR -->
-                <div class="chat-bar d-flex">
+                <form class="chat-bar d-flex" @submit.prevent="sendMessage">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @submit.prevent="sendMessage">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" required>
                     <i class="fa-solid fa-microphone"></i>
-                </div>
+                </form>
             </div>
         </div>
         

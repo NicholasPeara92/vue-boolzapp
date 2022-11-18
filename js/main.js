@@ -7,7 +7,7 @@ createApp({
     data() {
             return {
                 searchName: '',
-                newMessage:'',
+                newMessage: null,
                 contactId: 0,
                 contacts: [
                 {
@@ -203,6 +203,28 @@ createApp({
             }
         },
         // metodo per inviare nuovi messaggi nelle chat
-        
+        sendMessage() {
+            if (this.newMessage !== null) {
+                const sentMessage = {
+                date: new Date().toLocaleTimeString('it-IT'),
+                message: this.newMessage,
+                status: 'sent',
+                };
+                this.contacts[this.contactId].messages.push(sentMessage);
+                this.newMessage = null;
+                this.cpuReply();
+            }
+        },
+        // metodo per aggiungere la replica da parte della cpu
+        cpuReply() {
+            setTimeout(() => {
+                const cpuMessage = {
+                    date: new Date().toLocaleTimeString('it-IT'),
+                    message: 'Non mi interessa, lasciami in pace!',
+                    status: 'received',
+                };
+                this.contacts[this.contactId].messages.push(cpuMessage);
+            }, 1000);
+        },
     }
 }).mount('#app')
