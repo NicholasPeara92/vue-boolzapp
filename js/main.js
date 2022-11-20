@@ -230,5 +230,12 @@ createApp({
         deleteMessages(message, i) {
             this.contacts[this.contactId].messages.splice(i , 1);                      
         },
+        // metodo per cambiare formato delle date
+        formatMessageData(data){
+            return moment(data, "DD/MM/YYYY hh:mm:ss").fromNow();
+        }
+    },
+    created(){
+        moment.locale('it');
     }
 }).mount('#app')

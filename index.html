@@ -14,6 +14,10 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <!-- script axios -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- moment js -->
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <!-- moment locales js -->
+        <script src="https://momentjs.com/downloads/moment-with-locales.js"></script> 
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -55,7 +59,7 @@
                                 </span>
                             </div>
                             <div class="date">
-                                <span>{{contact.messages[contact.messages.length-1].date}}</span>
+                                <span>{{formatMessageData(contact.messages[contact.messages.length-1].date)}}</span>
                             </div>
                         </li>
                     </ul>
@@ -68,7 +72,7 @@
                         <img :src="`img/avatar${contacts[contactId].avatar}.jpg`" alt="">
                         <span>
                             <b>{{contacts[contactId].name}}</b>
-                            <p>Ultimo accesso oggi alle 12:00</p>
+                            <p>Ultimo accesso {{formatMessageData(contacts[contactId].messages[contacts[contactId].messages.length-1].date)}}</p>
                         </span>
                     </div>
                     <div class="chat-icons">
@@ -82,7 +86,7 @@
                     <div class="message-row" v-for="(message, index) in contacts[contactId].messages" :class="message.status">
                         <div class="message">
                             <p class="sent">{{message.message}}</p>
-                            <small>{{message.date}}</small>
+                            <small>{{formatMessageData(message.date)}}</small>
                             <div class="dropdown"> 
                                 <button class="my-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-angle-down" ></i>
