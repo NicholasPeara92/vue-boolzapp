@@ -226,5 +226,9 @@ createApp({
                 this.contacts[this.contactId].messages.push(cpuMessage);
             }, 1000);
         },
+        // metodo per cancellare i messaggi
+        deleteMessages(message, i) {
+            this.contacts[this.contactId].messages.splice(i , 1);                      
+        },
     }
 }).mount('#app')

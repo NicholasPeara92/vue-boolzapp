@@ -45,12 +45,13 @@ body {
     width: 100%;
     background-color: #eaeaea;
     height: 70px;
-    padding: 0 10px;
+    padding: 10px;
 }
 
 img {
     width: 50px;
     border-radius: 50%;
+    margin-right: 10px;
 }
 
 .user-profile {
@@ -122,14 +123,18 @@ img {
     position: relative;
     display: flex;
     flex-direction: column;
+    padding-left: 0;
 }
 
 .contact-list li {
     display: flex;
     padding: 10px;
     justify-content: space-between;
-    border-bottom: 1px solid #e9ebeb;
     cursor: pointer;
+}
+
+.contact-list li:not(:last-child) {
+    border-bottom: 1px solid #e9ebeb;
 }
 
 .date {
@@ -147,6 +152,7 @@ img {
     background-color: #eaeaea;
     padding: 10px;
     flex-shrink: 0;
+    height: 70px;
 }
 
 .main-chat {
@@ -203,6 +209,7 @@ img {
 .message {
     display: flex;
     border-radius: 10px;
+    position: relative;
 }
 
 .message p {
@@ -215,4 +222,16 @@ small {
     align-self: flex-end;
     padding: 5px;
     font-size: 12px;
+}
+
+.my-dropdown {
+    background-color: transparent;
+    border:none;
+    position: absolute;
+    right: 10px;
+    top: -0;
+}
+
+p {
+    margin-bottom: 0;
 }
