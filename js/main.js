@@ -6,6 +6,7 @@ const { createApp } = Vue
 createApp({
     data() {
             return {
+                currentDate: '',
                 searchName: '',
                 newMessage: null,
                 contactId: 0,
@@ -206,9 +207,9 @@ createApp({
         sendMessage() {
             if (this.newMessage !== null) {
                 const sentMessage = {
-                date: new Date().toLocaleTimeString('it-IT'),
-                message: this.newMessage,
-                status: 'sent',
+                    date: this.currentDate,
+                    message: this.newMessage,
+                    status: 'sent',
                 };
                 this.contacts[this.contactId].messages.push(sentMessage);
                 this.newMessage = null;
@@ -219,7 +220,7 @@ createApp({
         cpuReply() {
             setTimeout(() => {
                 const cpuMessage = {
-                    date: new Date().toLocaleTimeString('it-IT'),
+                    date: this.currentDate,
                     message: 'Non mi interessa, lasciami in pace!',
                     status: 'received',
                 };
@@ -233,9 +234,11 @@ createApp({
         // metodo per cambiare formato delle date
         formatMessageData(data){
             return moment(data, "DD/MM/YYYY hh:mm:ss").fromNow();
-        }
+        },
+
     },
     created(){
         moment.locale('it');
+        this.currentDate = new Date().toLocaleString();
     }
 }).mount('#app')
