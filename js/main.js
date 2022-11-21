@@ -228,7 +228,7 @@ createApp({
             }, 1000);
         },
         // metodo per cancellare i messaggi
-        deleteMessages(message, i) {
+        deleteMessages(i) {
             this.contacts[this.contactId].messages.splice(i , 1);                      
         },
         // metodo per cambiare formato delle date
