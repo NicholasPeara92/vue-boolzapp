@@ -6,6 +6,7 @@ const { createApp } = Vue
 createApp({
     data() {
             return {
+                chuck:[],
                 currentDate: '',
                 searchName: '',
                 newMessage: null,
@@ -221,7 +222,7 @@ createApp({
             setTimeout(() => {
                 const cpuMessage = {
                     date: this.currentDate,
-                    message: 'Non mi interessa, lasciami in pace!',
+                    message: this.chuck[this.getRndInteger(0, this.chuck.length - 1)],
                     status: 'received',
                 };
                 this.contacts[this.contactId].messages.push(cpuMessage);
@@ -235,10 +236,20 @@ createApp({
         formatMessageData(data){
             return moment(data, "DD/MM/YYYY hh:mm:ss").fromNow();
         },
+        // genera un numero randomico
+        getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        },
 
     },
     created(){
         moment.locale('it');
         this.currentDate = new Date().toLocaleString();
+        for ( let i = 0; i <= 20; i++ ) {
+            axios.get('https://api.chucknorris.io/jokes/random')
+            .then((response) => {             
+            this.chuck.push(response.data.value);
+            })
+        }
     }
 }).mount('#app')
