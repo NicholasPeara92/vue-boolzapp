@@ -240,6 +240,11 @@ createApp({
         getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         },
+        // metodo che fa seguire la scrollbar all'ultimo messaggio inviato o ricevuto
+        scrollBottom(){
+            const chat = document.querySelector('.main-chat')
+            chat.scrollTop = chat.scrollHeight
+        }
 
     },
     created(){
@@ -251,5 +256,8 @@ createApp({
             this.chuck.push(response.data.value);
             })
         }
+    },
+    updated(){
+        this.scrollBottom()
     }
 }).mount('#app')

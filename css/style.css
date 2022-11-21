@@ -58,7 +58,6 @@ p {
 
 .chat-col {
     width: calc(1600px - 535px);
-    background-image: url(../img/mine.jpg);
     display: flex;
     flex-direction: column;
 }
@@ -171,11 +170,12 @@ p {
 }
 
 .main-chat {
+    background-image: url(../img/mine.jpg);
     flex-grow: 1;
     flex-direction: column;
     padding: 50px;
     overflow-y: auto;
-
+    
 }
 
 .chat-bar {
