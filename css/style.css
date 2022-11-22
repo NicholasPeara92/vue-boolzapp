@@ -201,6 +201,8 @@ p {
     display: flex;
     margin: 20px;
     justify-content: flex-end;
+    max-width: 50%;
+
 }
 .message-row.sent .message {
     background-color: #d5f9ba;
@@ -210,6 +212,7 @@ p {
     display: flex;
     margin: 20px;
     justify-content: flex-start;
+    max-width: 50%;
 }
 
 .message-row.received .message {

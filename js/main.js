@@ -181,24 +181,24 @@ createApp({
 			this.contactId = index;
 		},
         // metodo di ricerca contatto
-        searchContact: function() {
+        searchContact() {
             if (this.searchName === ''){
-                for(let i=0; i<this.contacts.length; i++){
+                for(let i=0; i<this.contacts.length; i++) {
                     this.contacts[i].visible = true;
                 }
             } else {
                 for(let i=0; i<this.contacts.length; i++){
-                    if(!this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())){
+                    if(!this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())) {
                         this.contacts[i].visible = false;   
                     }
                 }
             }
         },
         // metodo per cancellare le lettere dalla searchbar dei contatti ed adattare i risultati
-        deLetter: function() {
-            if(this.searchName !== ''){
-                for(let i=0; i<this.contacts.length; i++){
-                    if(this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())){
+        deLetter() {
+            if(this.searchName !== '') {
+                for(let i = 0; i < this.contacts.length; i++) {
+                    if(this.contacts[i].name.toLowerCase().includes(this.searchName.toLowerCase())) {
                         this.contacts[i].visible = true;
                     }
                 }
@@ -233,7 +233,7 @@ createApp({
             this.contacts[this.contactId].messages.splice(i , 1);                      
         },
         // metodo per cambiare formato delle date
-        formatMessageData(data){
+        formatMessageData(data) {
             return moment(data, "DD/MM/YYYY hh:mm:ss").fromNow();
         },
         // genera un numero randomico
@@ -241,13 +241,13 @@ createApp({
             return Math.floor(Math.random() * (max - min + 1) ) + min;
         },
         // metodo che fa seguire la scrollbar all'ultimo messaggio inviato o ricevuto
-        scrollBottom(){
+        scrollBottom() {
             const chat = document.querySelector('.main-chat')
             chat.scrollTop = chat.scrollHeight
         }
 
     },
-    created(){
+    created() {
         moment.locale('it');
         this.currentDate = new Date().toLocaleString();
         for ( let i = 0; i <= 20; i++ ) {
@@ -257,7 +257,7 @@ createApp({
             })
         }
     },
-    updated(){
+    updated() {
         this.scrollBottom()
     }
 }).mount('#app')
