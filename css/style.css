@@ -156,6 +156,13 @@ p {
     border-bottom: 1px solid #e9ebeb;
 }
 
+.last-message {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 270px;
+}
+
 .date {
     font-size: 12px;
     align-self: flex-end;

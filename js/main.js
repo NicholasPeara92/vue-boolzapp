@@ -214,18 +214,18 @@ createApp({
                 };
                 this.contacts[this.contactId].messages.push(sentMessage);
                 this.newMessage = null;
-                this.cpuReply();
+                this.cpuReply(this.contactId);
             }
         },
         // metodo per aggiungere la replica da parte della cpu
-        cpuReply() {
+        cpuReply(contactId) {
             setTimeout(() => {
                 const cpuMessage = {
                     date: this.currentDate,
                     message: this.chuck[this.getRndInteger(0, this.chuck.length - 1)],
                     status: 'received',
                 };
-                this.contacts[this.contactId].messages.push(cpuMessage);
+                this.contacts[contactId].messages.push(cpuMessage);
             }, 1000);
         },
         // metodo per cancellare i messaggi
